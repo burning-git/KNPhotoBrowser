@@ -16,7 +16,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self setThumbImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/circlePoint@3x.png"] forState:UIControlStateNormal];
+        [self setThumbImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/circlePoint"] forState:UIControlStateNormal];
         [self setMinimumTrackTintColor:[UIColor whiteColor]];
         [self setMaximumTrackTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     }
@@ -63,7 +63,7 @@
 - (UIButton *)pauseStopBtn{
     if (!_pauseStopBtn) {
         _pauseStopBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/pause@2x.png"] forState:UIControlStateNormal];
+        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/pause"] forState:UIControlStateNormal];
         [_pauseStopBtn addTarget:self action:@selector(pauseStopBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _pauseStopBtn;
@@ -145,9 +145,9 @@
     if (isPlaying) {
         _isDragging = false;
         [_slider setUserInteractionEnabled:true];
-        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/pause@2x.png"] forState:UIControlStateNormal];
+        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/pause"] forState:UIControlStateNormal];
     }else{
-        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/play@2x.png"] forState:UIControlStateNormal];
+        [_pauseStopBtn setImage:[UIImage imageNamed:@"KNPhotoBrowser.bundle/play"] forState:UIControlStateNormal];
     }
 }
 

@@ -20,10 +20,27 @@
     #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #endif
 
-#define iPhoneX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : false)
+#define iPhoneX  kIsIphoneX()
 #define iPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828 , 1792), [[UIScreen mainScreen] currentMode].size) : false)
 #define iPhoneXs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242 , 2688), [[UIScreen mainScreen] currentMode].size) : false)
-
+static inline BOOL kIsIphoneX () {
+    
+    UIUserInterfaceIdiom idiom = [UIDevice currentDevice].userInterfaceIdiom;
+    if (idiom == UIUserInterfaceIdiomPhone) {
+        if ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896) {
+            return YES;
+        }
+        if (@available(iOS 11.0, *)) {
+            if ([UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom > 0.0)
+            {
+                return YES;
+                
+            }
+        }
+    }
+    
+    return NO;
+}
 
 #define PhotoShowPlaceHolderImageColor [UIColor blackColor]
 
